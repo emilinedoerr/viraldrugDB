@@ -9,3 +9,5 @@ All front end code.
 All scripts (python + bash)
 
 
+##References:
+PHP tutorial, Tutorial Republic. [Link](tutorialrepublic.com/php-tutorial/).
