@@ -2,12 +2,9 @@
 
 [Link to webpage](http://odin.unomaha.edu/~edoerr/viraldrugDB.php)
 
-### 'webcontent/' folder
-All front end code.
-
-### 'scripts/' folder
-All scripts (python + bash)
+All front end code in webcontent/ folder.
+All scripts in scripts/ folder.
 
 
-##References:
+###  References:
 PHP tutorial, Tutorial Republic. [Link](tutorialrepublic.com/php-tutorial/).
