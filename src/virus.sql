@@ -29,7 +29,7 @@ CREATE TABLE virus(
 	PRIMARY KEY (virus_id)
 );
 
--- DDL to insert virus names
+-- DML to populate table
 INSERT INTO virus (name)
 VALUES ("herpes");
 INSERT INTO virus (name)

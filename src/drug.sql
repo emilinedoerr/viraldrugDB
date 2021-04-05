@@ -37,7 +37,7 @@ CREATE TABLE drug(
 	PRIMARY KEY (drug_id)
 );
 
--- DDL to insert drug names
+-- DML to insert drug names
 -- Drugs for herpes
 INSERT INTO drug (name)
 VALUES ("Acyclovir");
