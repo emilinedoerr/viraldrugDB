@@ -25,8 +25,18 @@ DROP TABLE IF EXISTS virus;
 CREATE TABLE virus(
 	virus_id int NOT NULL AUTO_INCREMENT,
 	name VARCHAR(30),
+	drug_list VARCHAR(30),
 	PRIMARY KEY (virus_id)
 );
 
+INSERT INTO virus (name)
+VALUES ("herpes");
+INSERT INTO virus (name)
+VALUES ("influenza");
+INSERT INTO virus (name)
+VALUES ("hepatitis");
+
 -- Print table to verify
 DESCRIBE virus;
+SELECT * FROM virus;
+
