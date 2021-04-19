@@ -34,23 +34,29 @@ DROP TABLE IF EXISTS drug;
 CREATE TABLE drug(
 	drug_id int NOT NULL AUTO_INCREMENT,
 	name VARCHAR(30),
+	virus VARCHAR(30),
 	PRIMARY KEY (drug_id)
 );
 
 -- DML to insert drug names
--- Drugs for herpes
-INSERT INTO drug (name)
-VALUES ("Acyclovir");
-INSERT INTO drug (name)
-VALUES ("Valacyclovir");
-INSERT INTO drug (name)
-VALUES ("Ganciclovir");
-INSERT INTO drug (name)
-VALUES ("Foscarnet");
-INSERT INTO drug (name)
-VALUES ("Cidofovir");
-INSERT INTO drug (name)
-VALUES ("Valganciclovir");
+-- Drug list defined by Razonable
+INSERT INTO drug (name, virus)
+VALUES ("Acyclovir", "herpes"),
+       ("Valacyclovir", "herpes"),
+       ("Ganciclovir", "herpes"),
+       ("Foscarnet", "herpes"),
+       ("Cidofovir", "herpes"),
+       ("Valganciclovir", "herpes"),
+       ("Adefovir", "hepatitis"),
+       ("Emtricitabine", "hepatitis"),
+       ("Entecavir", "hepatitis"),
+       ("Lamivudine", "hepatitis"),
+       ("Telbivudine", "hepatitis"),
+       ("Tenofivir", "hepatitis"),
+       ("Amantadine", "influenza"),
+       ("Rimantadine", "influenza"),
+       ("Oseltamivir", "influenza"),
+       ("Zanamivir", "influenza");
 
 -- Print table to verify
 DESCRIBE drug;
