@@ -8,4 +8,5 @@ All scripts in scripts/ folder.
 
 ###  References:
 PHP tutorial, Tutorial Republic. [Link](tutorialrepublic.com/php-tutorial/).
-Cronjob Shell Script, sheharyarn. [Link](https://gist.github.com/sheharyarn/0f04c1ba18462cddaaf5).
+mysqldump Documentation, MariaDB. [Link](https://mariadb.com/kb/en/mysqldump/).
+Linux cronjob tutorial, KVZ. [Link](https://kvz.io/schedule-tasks-on-linux-using-crontab.html).
