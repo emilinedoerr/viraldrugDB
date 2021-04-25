@@ -8,3 +8,4 @@ All scripts in scripts/ folder.
 
 ###  References:
 PHP tutorial, Tutorial Republic. [Link](tutorialrepublic.com/php-tutorial/).
+Cronjob Shell Script, sheharyarn. [Link](https://gist.github.com/sheharyarn/0f04c1ba18462cddaaf5).
