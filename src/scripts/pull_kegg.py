@@ -22,19 +22,26 @@ virus_list = ['herpes', 'hepatitis', 'influenza']
 
 def main():
 
-
+ 
     # For each virus:
-    # (for now only process one at a time)
-    virus = virus_list[0]
+    for virus in virus_list:
     
-    # query dailymed spls for drug name
-    query = url + "list/" + virus
-    print(query)
+        # query kegg disease for disease name
+        query = url + "find/disease/" + virus
         
-    # request
-    #response = requests.get(query)
-    
-    # Check page count
+        # request
+        response = requests.get(query)
+        data = str(response.text)
+
+        # get entry id and disease names
+        data = data.split("\n")
+        for i in range(len(data)):
+            temp = data[i].split("\t")
+            if temp != [""]:
+            #insert += 
+                print(temp[0])
+                print(temp[1])
+    # Check page coun1
     #metadata = json.loads(response.text)['metadata']
     #print("TOTAL PAGES", metadata['total_pages'])
     
