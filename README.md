@@ -2,6 +2,17 @@
 
 [Link to webpage](http://odin.unomaha.edu/~edoerr/viraldrugDB.php)
 
+### Usage
+
+## Developer
+# Update data
+To manually pull data from PubChem, DailyMed, and KEGG, execute the `update.sh` script found in the scripts/ folder.
+
+# Backup database
+To create a backup of both tables, execute the backup.sh` script found in the scripts/ folder. 
+
+## User
+
 ### File Structure:
 - All front end code in webcontent/ folder.
 
