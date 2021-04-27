@@ -30,12 +30,16 @@ def main():
     # Placeholder for insert statements
     inserts = list()
 
+    # Placeholder for update statements
+    updates = list()
+
     # For each virus:
     for virus in virus_list:
 
         # Write insert statement for each virus in the list
         insert = "INSERT INTO virus VALUES(NULL,\"" + virus
-        
+        # Update
+        update = "UPDATE TABLE drug SET "
         # Placeholder for KEGG disease ids
         ds_id = list()
 
@@ -60,20 +64,23 @@ def main():
         # process strings for insert
         # Write lists as one string with ";" separator
         ds_id_str = str(";".join(ds_id))
+        
+        # Add to update
+        update += "ds_ids=\"" + ds_id_str "\""
+        
         ds_list_str = str(";".join(ds_list)).replace("; ",";")
 
         # Join strings and add quotes
         ds_str = "\",\"".join([ds_id_str, ds_list_str])
 
-        # Add insert statement for a virus to list
+        # Add alter statement for a virus to list
         insert += "\",\"" + ds_str + "\");"
         inserts += [insert]
 
-    sqlfile = open(sql_path, 'w')
+        "WHERE virus=\"" + virus + "\""
+    # Print insert statments
     for insert in inserts:
-        sqlfile.write(insert)
-        sqlfile.write("\n")
-    sqlfile.close()
+        print(insert)
 
 if __name__ == '__main__':
     main()
