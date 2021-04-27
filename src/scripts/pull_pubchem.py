@@ -51,16 +51,13 @@ def main():
     
         query += operation_properties + ext
     
-        # Build Request
-        print(query)
     
     # Retrieve response
     response = requests.get(query)
-    drugnames = json.loads(response.text)
+    data = json.loads(response.text)
     
     # Access data
-    print(list(drugnames.values())[0])  # data is here
-
+    prop_list = data['PropertyTable']['Properties']
 
 if __name__ == '__main__':
     main()
