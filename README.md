@@ -4,11 +4,14 @@
 
 ### Usage
 
-## Developer
-# Update data
+#### Developer
+##### Cronjobs
+Linux cronjob used to update data via API pulls and backup database once every month.
+
+##### Update data
 To manually pull data from PubChem, DailyMed, and KEGG, execute the `update.sh` script found in the scripts/ folder.
 
-# Backup database
+##### Backup database
 To create a backup of both tables, execute the backup.sh` script found in the scripts/ folder. 
 
 ## User
