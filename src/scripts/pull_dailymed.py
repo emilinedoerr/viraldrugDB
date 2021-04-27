@@ -29,6 +29,7 @@ def main():
     
     # For each virus:
     for virus in virus_list:
+
         # Read in file with drug list
         filepath = druglist_path + virus + "_drugs.txt"
         drug_file = open(filepath, 'r')
@@ -40,6 +41,10 @@ def main():
         drug_file.close()
     
         for drug in drug_list:
+
+            # Update statement
+            update = "UPDATE drug"
+            
             # query dailymed spls for drug name
             query = url + "spls" + ext + "?drug_name=" + drug
         
@@ -47,8 +52,17 @@ def main():
             response = requests.get(query)
             data = json.loads(response.text)['data']
             # extract set ids
-            setid_list = [i['setid'] for i in data] 
-            print(setid_list)
+            title_list = [i['title'] for i in data] 
+            update += " SET title_list = \"" + str(";".join(title_list[:5]))
+            update += "\""
+            update += " WHERE drug_name = \"" + drug + "\";"
+            updates += [update]
+    
+    # Print insert statments
+    for update in updates:
+        print(update)
+
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,3 @@
+/usr/bin/mysqldump --routines -u localhost edoerr virus > virus.dump.sql
+/usr/bin/mysqldump --routines -u localhost edoerr drug > drug.dump.sql
+
