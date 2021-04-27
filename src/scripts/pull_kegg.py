@@ -32,7 +32,7 @@ def main():
     for virus in virus_list:
 
         # Update statement
-        update = "UPDATE virus\n"
+        update = "UPDATE virus"
         
         # Placeholder for KEGG disease ids
         ds_id = list()
@@ -57,10 +57,10 @@ def main():
 
         # process strings
         # Write lists as one string with ";" separator
-        update += "SET ds_ids = \"" + str(";".join(ds_id))
+        update += " SET ds_ids = \"" + str(";".join(ds_id))
         update += "\", disease_list = \"" + str(";".join(ds_list)).replace("; ",";")
-        update += "\"\n"
-        update += "WHERE common_name = " + virus + "\";"
+        update += "\""
+        update += " WHERE common_name = \"" + virus + "\";"
         updates += [update]
     
     # Print insert statments
