@@ -2,9 +2,9 @@ import requests
 import json
 
 # pull_dailymed.py
-
+#
 # @author Emiline Doerr
-
+#
 # Pull all data from dailymed given a list of viruses and drugs
 # runs with Python3 
 
@@ -48,11 +48,14 @@ def main():
         
     # request
     response = requests.get(query)
-    data = json.loads(response.text)['data']
     
+    # Check page count
+    metadata = json.loads(response.text)['metadata']
+    print("TOTAL PAGES", metadata['total_pages'])
+    
+    data = json.loads(response.text)['data']
     # extract set ids
     setid_list = [i['setid'] for i in data] 
-    print(setid_list)
 
     # keep going if time ...
     # for each set id:

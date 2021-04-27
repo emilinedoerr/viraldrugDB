@@ -22,14 +22,15 @@ virus_list = ['herpes', 'hepatitis', 'influenza']
 # Files with drugs
 druglist_path = "/home/edoerr/viraldrugDB/src/data/"
 
+# File to write inserts
+sql_path = "/home/edoerr/viraldrugDB/src/test.sql"
 
 
 def main():
 
-
+    # String to store insert statements
+    inserts = list()
     # For each virus:
-    # (for now only process one at a time)
-    #virus = virus_list[0]
     for virus in virus_list:
         # Read in file with drug list
         filepath = druglist_path + virus + "_drugs.txt"
@@ -63,7 +64,13 @@ def main():
             insert += str(prop_list['CID']) + "\",\""
             insert += str(prop_list['MolecularFormula']) + "\",\""
             insert += str(prop_list['IUPACName']) + "\");"
-            print(insert)
+            inserts += [insert]
+
+    sqlfile = open(sql_path, 'w')
+    for insert in inserts:
+        sqlfile.write(insert)
+        sqlfile.write("\n")
+    sqlfile.close()
 
 
 if __name__ == '__main__':
