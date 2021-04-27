@@ -42,22 +42,29 @@ def main():
     drug_file.close()
     
     for drug in drug_list:
+        # drug_name,virus_name,cid,mol_formula,iupac_name
+        insert = "INSERT INTO drug VALUES("
+        insert += drug + "," + virus + ","
+
         # API URL Path
         # query = prefix/[INPUT]/[OPERATION]/[OUTPUT]?[OPTIONS]
         query = url + "compound/name/" + drug
     
-        # operation_cids = "/cids/" # return cid
-        operation_properties = "/property/MolecularFormula,IUPACName/" # return properties
+        # Return Molecular Formula and IUPAC (and cid)
+        operation_properties = "/property/MolecularFormula,IUPACName/"
+        query += operation_properties + ext 
     
-        query += operation_properties + ext
+        # Retrieve response
+        response = requests.get(query)
+        data = json.loads(response.text)
     
-    
-    # Retrieve response
-    response = requests.get(query)
-    data = json.loads(response.text)
-    
-    # Access data
-    prop_list = data['PropertyTable']['Properties']
+        # Access data
+        prop_list = data['PropertyTable']['Properties'][0]
+        insert += str(prop_list['CID']) + ","
+        insert += str(prop_list['MolecularFormula']) + ","
+        insert += str(prop_list['IUPACName'])
+        print(insert)
+
 
 if __name__ == '__main__':
     main()
