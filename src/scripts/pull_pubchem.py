@@ -44,7 +44,7 @@ def main():
     
         for drug in drug_list:
             # drug_name,virus_name,cid,mol_formula,iupac_name
-            insert = "INSERT INTO drug VALUES(\""
+            insert = "INSERT INTO drug VALUES(NULL,\""
             insert += drug + "\",\"" + virus + "\",\""
 
             # API URL Path
