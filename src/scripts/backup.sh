@@ -1,4 +1,5 @@
-#/bin/bash
-/usr/bin/mysqldump -–user=localhost
--–databases edoerr | gzip > 
-/home/cPanel-User/edoerr -`date +%Y%m%d%H%M`.sql.gz
+#!/bin/bash
+
+mysqldump edoerr virus > /home/edoerr/viraldrugDB/src/data/virus.dump.sql
+mysqldump edoerr drug > /home/edoerr/viraldrugDB/src/data/drug.dump.sql
+
