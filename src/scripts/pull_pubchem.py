@@ -45,7 +45,7 @@ def main():
         for drug in drug_list:
         
             # Update statement
-            update = "UPDATE virus SET "            
+            update = "UPDATE drug SET "            
 
             # API URL Path
             # query = prefix/[INPUT]/[OPERATION]/[OUTPUT]?[OPTIONS]

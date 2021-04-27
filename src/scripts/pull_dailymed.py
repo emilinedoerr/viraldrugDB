@@ -23,46 +23,32 @@ virus_list = ['herpes', 'hepatitis', 'influenza']
 druglist_path = "/home/edoerr/viraldrugDB/src/data/"
 
 
-
 def main():
 
-
+    updates = list()
+    
     # For each virus:
-    # (for now only process one at a time)
-    virus = virus_list[0]
-    
-    # Read in file with drug list
-    filepath = druglist_path + virus + "_drugs.txt"
-    drug_file = open(filepath, 'r')
-    drug_list = list()
-    line = drug_file.readline()
-    while (line):
-        drug_list += [line.strip()]
+    for virus in virus_list:
+        # Read in file with drug list
+        filepath = druglist_path + virus + "_drugs.txt"
+        drug_file = open(filepath, 'r')
+        drug_list = list()
         line = drug_file.readline()
-    drug_file.close()
+        while (line):
+            drug_list += [line.strip()]
+            line = drug_file.readline()
+        drug_file.close()
     
-    for drug in drug_list:
-        # query dailymed spls for drug name
-        query = url + "spls" + ext + "?drug_name=" + drug
-        print(query)
+        for drug in drug_list:
+            # query dailymed spls for drug name
+            query = url + "spls" + ext + "?drug_name=" + drug
         
-    # request
-    response = requests.get(query)
-    
-    # Check page count
-    metadata = json.loads(response.text)['metadata']
-    print("TOTAL PAGES", metadata['total_pages'])
-    
-    data = json.loads(response.text)['data']
-    # extract set ids
-    title_list = [i['title'] for i in data]
-    setid_list = [i['setid'] for i in data] 
-    print(title_list)
-    print(setid_list)
-    # keep going if time ...
-    # for each set id:
-    # extract ndc list
-    # return total ndc list to drug
+            # request
+            response = requests.get(query)
+            data = json.loads(response.text)['data']
+            # extract set ids
+            setid_list = [i['setid'] for i in data] 
+            print(setid_list)
 
 
 if __name__ == '__main__':
