@@ -7,6 +7,8 @@
 #### Developer
 ##### Cronjobs
 Linux cronjob used to update data via API pulls and backup database once every month.
+To update the cronjob, open the 'cronjob.sh' script and ensure file locations are correct.
+Execute the script to install the cronjobs.
 
 ##### Update data
 To manually pull data from PubChem, DailyMed, and KEGG, execute the `update.sh` script found in the scripts/ folder.
