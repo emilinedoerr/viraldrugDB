@@ -1,11 +1,13 @@
 import requests
 import json
 
-# pull_dailymed.py
+# pull_kegg.py
 #
 # @author Emiline Doerr
 #
-# Pull all data from dailymed given a list of viruses and drugs
+# Pull data from KEGG given a list of virus common names
+# Print SQL update staements
+# Intended to be run by bash script
 # runs with Python3 
 
 # Global variables:
@@ -20,26 +22,18 @@ ext = ".json"
 virus_list = ['herpes', 'hepatitis B', 'influenza']
 
 
-# File to write inserts
-sql_path = "/home/edoerr/viraldrugDB/src/testkegg.sql"
-
-
 def main():
 
 
-    # Placeholder for insert statements
-    inserts = list()
-
-    # Placeholder for update statements
+    # Placeholder for pulled data
     updates = list()
-
+    
     # For each virus:
     for virus in virus_list:
 
-        # Write insert statement for each virus in the list
-        insert = "INSERT INTO virus VALUES(NULL,\"" + virus
-        # Update
-        update = "UPDATE TABLE drug SET "
+        # Update statement
+        update = "UPDATE virus\n"
+        
         # Placeholder for KEGG disease ids
         ds_id = list()
 
@@ -61,26 +55,17 @@ def main():
                 ds_id += [temp[0]]
                 ds_list += [temp[1]]
 
-        # process strings for insert
+        # process strings
         # Write lists as one string with ";" separator
-        ds_id_str = str(";".join(ds_id))
-        
-        # Add to update
-        update += "ds_ids=\"" + ds_id_str "\""
-        
-        ds_list_str = str(";".join(ds_list)).replace("; ",";")
-
-        # Join strings and add quotes
-        ds_str = "\",\"".join([ds_id_str, ds_list_str])
-
-        # Add alter statement for a virus to list
-        insert += "\",\"" + ds_str + "\");"
-        inserts += [insert]
-
-        "WHERE virus=\"" + virus + "\""
+        update += "SET ds_ids = \"" + str(";".join(ds_id))
+        update += "\", disease_list = \"" + str(";".join(ds_list)).replace("; ",";")
+        update += "\"\n"
+        update += "WHERE common_name = " + virus + "\";"
+        updates += [update]
+    
     # Print insert statments
-    for insert in inserts:
-        print(insert)
+    for update in updates:
+        print(update)
 
 if __name__ == '__main__':
     main()
