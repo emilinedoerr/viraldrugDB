@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <title>ViralDrugDBe</title>
   </head>
@@ -41,13 +42,26 @@ echo "Query is: $query <br>";
  * If there are no results, print an error message.
  */
 if ($result = mysqli_query($connect, $query)) {
+    printf("<table>");
+    printf("<tr>");
+    printf("<th></th>");
+    printf("<th>Drug</th>");
+    printf("<th>Virus</th>");
+    printf("<th>CID</th>");
+    printf("<th>Molecular Formula</th>");
+    printf("<th>IUPAC Name</th>");
+    printf("</tr>");
     while ($row = mysqli_fetch_row($result)) {
-	printf("<br>");
+	printf("<tr>");
 	for ($i = 0; $i <= count($row); $i+=1) {    
-	    printf("%s ", $row[$i]);
+		printf("<td>");
+		printf("%s ", $row[$i]);
+		printf("</td>");
 	}
+	printf("</tr>");
     }
     mysqli_free_result($result);
+    printf("</table>");
 }else{
 	echo "No results";
 }
