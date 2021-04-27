@@ -55,8 +55,10 @@ def main():
     
     data = json.loads(response.text)['data']
     # extract set ids
+    title_list = [i['title'] for i in data]
     setid_list = [i['setid'] for i in data] 
-
+    print(title_list)
+    print(setid_list)
     # keep going if time ...
     # for each set id:
     # extract ndc list

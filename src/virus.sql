@@ -24,20 +24,13 @@ DROP TABLE IF EXISTS virus;
 -- DDL to create tabe
 CREATE TABLE virus(
 	virus_id int NOT NULL AUTO_INCREMENT,
-	name VARCHAR(30),
-	drug_list VARCHAR(30),
+	common_name VARCHAR(30),
+	ds_ids TEXT,
+	disease_list TEXT,
 	PRIMARY KEY (virus_id)
 );
 
--- DML to populate table
-INSERT INTO virus (name)
-VALUES ("herpes");
-INSERT INTO virus (name)
-VALUES ("influenza");
-INSERT INTO virus (name)
-VALUES ("hepatitis");
-
--- Print table to verify
-DESCRIBE virus;
-SELECT * FROM virus;
-
+-- DDL to populate table
+INSERT INTO virus VALUES(NULL,"herpes","ds:H00365;ds:H00366","Herpes simplex virus infection;HSV infection;Varicella;Chickenpox;Herpes zoster;Shingles");
+INSERT INTO virus VALUES(NULL,"hepatitis B","ds:H00412","Hepatitis B;Hepatitis B virus (HBV) infection");
+INSERT INTO virus VALUES(NULL,"influenza","ds:H00304;ds:H00398;ds:H00399;ds:H00400","Haemophilus influenzae infection;Influenza;Avian influenza;Bird flu;H5N1 flu;Parainfluenza infection");

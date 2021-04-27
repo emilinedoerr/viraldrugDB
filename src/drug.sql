@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS drug;
 CREATE TABLE drug(
 	drug_id int NOT NULL AUTO_INCREMENT,
 	drug_name VARCHAR(30),
-	virus_name VARCHAR(30),
+	disease_name VARCHAR(30),
 	cid VARCHAR(30),
 	mol_formula VARCHAR(60),
 	IUPAC_name TEXT,

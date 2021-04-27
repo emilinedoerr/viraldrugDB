@@ -16,44 +16,64 @@ url = "http://rest.kegg.jp/"
 # Return file extension (always json)
 ext = ".json"
 
-# Viruses
-virus_list = ['herpes', 'hepatitis', 'influenza']
+# Viruses (common names)
+virus_list = ['herpes', 'hepatitis B', 'influenza']
+
+
+# File to write inserts
+sql_path = "/home/edoerr/viraldrugDB/src/testkegg.sql"
 
 
 def main():
 
- 
+
+    # Placeholder for insert statements
+    inserts = list()
+
     # For each virus:
     for virus in virus_list:
-    
-        # query kegg disease for disease name
-        query = url + "find/disease/" + virus
+
+        # Write insert statement for each virus in the list
+        insert = "INSERT INTO virus VALUES(NULL,\"" + virus
         
-        # request
+        # Placeholder for KEGG disease ids
+        ds_id = list()
+
+        # Placeholder for KEGG diseases list
+        ds_list = list()
+
+        # query kegg diseases with common name
+        query = url + "find/disease/" + virus
         response = requests.get(query)
         data = str(response.text)
 
         # get entry id and disease names
+        # KEGG retuns data as a tab-separated string
         data = data.split("\n")
         for i in range(len(data)):
             temp = data[i].split("\t")
+            # Skip extra new lines
             if temp != [""]:
-            #insert += 
-                print(temp[0])
-                print(temp[1])
-    # Check page coun1
-    #metadata = json.loads(response.text)['metadata']
-    #print("TOTAL PAGES", metadata['total_pages'])
-    
-    #data = json.loads(response.text)['data']
-    # extract set ids
-    #setid_list = [i['setid'] for i in data] 
+                ds_id += [temp[0]]
+                ds_list += [temp[1]]
 
-    # keep going if time ...
-    # for each set id:
-    # extract ndc list
-    # return total ndc list to drug
+        # process strings for insert
+        # Write lists as one string with ";" separator
+        ds_id_str = str(";".join(ds_id))
+        ds_list_str = str(";".join(ds_list)).replace("; ",";")
 
+        # Join strings and add quotes
+        ds_str = "\",\"".join([ds_id_str, ds_list_str])
+
+        # Add insert statement for a virus to list
+        insert += "\",\"" + ds_str + "\");"
+        inserts += [insert]
+
+    sqlfile = open(sql_path, 'w')
+    for insert in inserts:
+        sqlfile.write(insert)
+        sqlfile.write("\n")
+    sqlfile.close()
 
 if __name__ == '__main__':
     main()
