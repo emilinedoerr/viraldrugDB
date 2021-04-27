@@ -29,7 +29,7 @@ CREATE TABLE drug(
 	PRIMARY KEY (drug_id)
 );
 
--- DML to insert drug names
+-- DDL to insert drug names
 INSERT INTO drug VALUES(NULL,"Acyclovir","herpes","135398513","C8H11N5O3","2-amino-9-(2-hydroxyethoxymethyl)-1H-purin-6-one");
 INSERT INTO drug VALUES(NULL,"Valacyclovir","herpes","135398742","C13H20N6O4","2-[(2-amino-6-oxo-1H-purin-9-yl)methoxyethyl (2S)-2-amino-3-methylbutanoate");
 INSERT INTO drug VALUES(NULL,"Ganciclovir","herpes","135398740","C9H13N5O4","2-amino-9-(1,3-dihydroxypropan-2-yloxymethyl)-1H-purin-6-one");
