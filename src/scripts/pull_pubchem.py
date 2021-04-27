@@ -22,16 +22,16 @@ virus_list = ['herpes', 'hepatitis', 'influenza']
 # Files with drugs
 druglist_path = "/home/edoerr/viraldrugDB/src/data/"
 
-# File to write inserts
-sql_path = "/home/edoerr/viraldrugDB/src/test.sql"
-
 
 def main():
 
-    # String to store insert statements
-    inserts = list()
+
+    # Placeholder for pulled data
+    updates = list()
+    
     # For each virus:
     for virus in virus_list:
+        
         # Read in file with drug list
         filepath = druglist_path + virus + "_drugs.txt"
         drug_file = open(filepath, 'r')
@@ -43,9 +43,9 @@ def main():
         drug_file.close()
     
         for drug in drug_list:
-            # drug_name,virus_name,cid,mol_formula,iupac_name
-            insert = "INSERT INTO drug VALUES(NULL,\""
-            insert += drug + "\",\"" + virus + "\",\""
+        
+            # Update statement
+            update = "UPDATE virus SET "            
 
             # API URL Path
             # query = prefix/[INPUT]/[OPERATION]/[OUTPUT]?[OPTIONS]
@@ -61,16 +61,15 @@ def main():
     
             # Access data
             prop_list = data['PropertyTable']['Properties'][0]
-            insert += str(prop_list['CID']) + "\",\""
-            insert += str(prop_list['MolecularFormula']) + "\",\""
-            insert += str(prop_list['IUPACName']) + "\");"
-            inserts += [insert]
-
-    sqlfile = open(sql_path, 'w')
-    for insert in inserts:
-        sqlfile.write(insert)
-        sqlfile.write("\n")
-    sqlfile.close()
+            update += " cid = \"" + str(prop_list['CID'])
+            update += "\", mol_formula = \"" + str(prop_list['MolecularFormula'])
+            update += "\", iupac_name = \"" + str(prop_list['IUPACName'])
+            update += "\" WHERE drug_name = \"" + drug + "\";" 
+            updates += [update]
+    
+    # Print update statements
+    for update in updates:
+        print(update)
 
 
 if __name__ == '__main__':

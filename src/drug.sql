@@ -22,25 +22,26 @@ DROP TABLE IF EXISTS drug;
 CREATE TABLE drug(
 	drug_id int NOT NULL AUTO_INCREMENT,
 	drug_name VARCHAR(30),
-	disease_name VARCHAR(30),
+	virus_id int NOT NULL,
 	cid VARCHAR(30),
 	mol_formula VARCHAR(60),
 	IUPAC_name TEXT,
-	PRIMARY KEY (drug_id)
+	PRIMARY KEY (drug_id),
+	FOREIGN KEY (virus_id) REFERENCES virus (virus_id)
 );
 
 -- DDL to insert drug names
-INSERT INTO drug VALUES(NULL,"Acyclovir","herpes",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Valacyclovir","herpes",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Ganciclovir","herpes",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Foscarnet","herpes",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Cidofovir","herpes",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Valganciclovir","herpes",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Amantadine","hepatitis B",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Rimantadine","hepatitis B",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Oseltamivir","hepatitis B",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Zanamivir","hepatitis B",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Amantadine","influenza",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Rimantadine","influenza",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Oseltamivir","influenza",NULL,NULL,NULL);
-INSERT INTO drug VALUES(NULL,"Zanamivir","influenza",NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Acyclovir",1,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Valacyclovir",1,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Ganciclovir",1,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Foscarnet",1,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Cidofovir",1,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Valganciclovir",1,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Amantadine",2,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Rimantadine",2,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Oseltamivir",2,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Zanamivir",2,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Amantadine",3,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Rimantadine",3,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Oseltamivir",3,NULL,NULL,NULL);
+INSERT INTO drug VALUES(NULL,"Zanamivir",3,NULL,NULL,NULL);
