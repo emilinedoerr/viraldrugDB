@@ -16,7 +16,10 @@ To manually pull data from PubChem, DailyMed, and KEGG, execute the `update.sh` 
 ##### Backup database
 To create a backup of both tables, execute the backup.sh` script found in the scripts/ folder. 
 
-## User
+#### User
+#### View all drugs
+Currently, the webpage linked at the top of this file will display the entire list of drugs.
+
 
 ### File Structure:
 - All front end code in webcontent/ folder.
@@ -24,6 +27,9 @@ To create a backup of both tables, execute the backup.sh` script found in the sc
 - All scripts in scripts/ folder.
 
 - All DDL and other files are located in the data/ folder.
+
+### License
+This project was created with an MIT License.
 
 
 ###  References used to write code:
