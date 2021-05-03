@@ -31,6 +31,6 @@ CREATE TABLE virus(
 );
 
 -- DDL to populate table
-INSERT INTO virus VALUES(NULL,"herpes","ds:H00365;ds:H00366","Herpes simplex virus infection;HSV infection;Varicella;Chickenpox;Herpes zoster;Shingles");
-INSERT INTO virus VALUES(NULL,"hepatitis B","ds:H00412","Hepatitis B;Hepatitis B virus (HBV) infection");
-INSERT INTO virus VALUES(NULL,"influenza","ds:H00304;ds:H00398;ds:H00399;ds:H00400","Haemophilus influenzae infection;Influenza;Avian influenza;Bird flu;H5N1 flu;Parainfluenza infection");
+INSERT INTO virus VALUES(NULL,"herpes",NULL,NULL);
+INSERT INTO virus VALUES(NULL,"hepatitis B",NULL,NULL);
+INSERT INTO virus VALUES(NULL,"influenza",NULL,NULL);
