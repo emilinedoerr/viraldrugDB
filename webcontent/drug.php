@@ -6,8 +6,12 @@
     <title>ViralDrugDB Drugs</title>
   </head>
 <body>
-  <h1><?php echo "<p>Browse Antiviral Drugs</p>"; ?></h1>
-
+  <nav>
+    <a href="viraldrugDB.html">ViralDrugDB</a> 
+    <a class="active">Browse drugs</a> 
+    <a href="virus.php">Browse viruses</a>
+  </nav> 
+  <h1><?php echo "Browse Antiviral Drugs"; ?></h1>
 <?php
 
 /*Connection variables at top

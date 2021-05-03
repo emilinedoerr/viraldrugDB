@@ -1,9 +1,33 @@
 body {
-	background-color: HoneyDew;
+background-color: lightGrey;
+}
+nav {
+overflow: hidden;  
+background-color: White;
+}
+nav a {
+float: left;
+display: block;
+color: black;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+nav a:hover {
+color: lightGrey;
+}
+nav a.active {
+background-color: grey;
+color: white;
 }
 h1 {
-	color: Grey;
+color: dimGrey;
+}
+h3 {
+color: grey;
 }
 p {
-	color: SlateGrey;
+color: SlateGrey;
 }
+

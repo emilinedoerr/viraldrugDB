@@ -6,7 +6,12 @@
     <title>ViralDrugDB Viruses</title>
   </head>
 <body>
-  <h1><?php echo "<p>Browse Virus Information</p>"; ?></h1>
+   <nav>
+     <a href="viraldrugDB.html">ViralDrugDB</a> 
+     <a href="drug.php">Browse drugs</a> 
+     <a class="active">Browse viruses</a> 
+   </nav>
+   <h1><?php echo "Browse Virus Information"; ?></h1>
 
 <?php
 
