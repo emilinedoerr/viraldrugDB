@@ -1,12 +1,12 @@
 # viraldrugDB
 
-[Link to webpage](http://odin.unomaha.edu/~edoerr/viraldrugDB.php)
+[Link to webpage](http://odin.unomaha.edu/~edoerr/viraldrugDB.html)
 
 ### Usage
 
 #### Developer
 ##### Cronjobs
-Linux cronjob used to update data via API pulls and backup database once every month.
+Linux cronjob used to update data via API pulls and backup database with mysql dumps once every month.
 To update the cronjob, open the 'cronjob.sh' script and ensure file locations are correct.
 Execute the script to install the cronjobs.
 
