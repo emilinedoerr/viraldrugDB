@@ -9,12 +9,22 @@
   <nav>
     <a class="active">ViralDrugDB</a> 
     <a href="drug.php">Browse drugs</a> 
-    <a href="virus.php">Browse viruses</a> 
+    <a href="virus.php">Browse viruses</a>
+    <div class="search-container">
+       <form action="search.php"> 
+	<button type="submit">Go</button>
+        <input type="text" placeholder="Search" required name="search">
+	<select id="attr" required name="attr">
+	   <option value="drug_name">Drug Name</option>
+	   <option value="virus_name">Virus Name</option>
+	</select>
+	<label for="attr">Search by..</label>
+      </form>
+    </div>
   </nav> 
-  <h1 id="top">Database for a Small Set of Viruses and Associated Antiviral Drugs</h1>
+  <h1>Database for a Small Set of Viruses and Associated Antiviral Drugs</h1>
   <h3>ViralDrugDB</h3>
 Visit the <a href="https://github.com/emilinedoerr/viraldrugDB" target="_blank" title="Open the GitHub Repository in a new tab">GitHub Repository</a> for this project.
       <p><a href="mailto:edoerr@unomaha.edu" title="Send an email to the author of this project">Report an issue</a></p>
-      <p><a href="#top">Back to top.</a></p>
    </body>
 </html>

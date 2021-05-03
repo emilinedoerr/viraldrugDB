@@ -10,8 +10,29 @@
     <a href="viraldrugDB.html">ViralDrugDB</a> 
     <a class="active">Browse drugs</a> 
     <a href="virus.php">Browse viruses</a>
+    <div class="search-container">
+      <form action="search.php"> 
+	<button type="submit">Go</button>
+        <input type="text" placeholder="Search" required name="search">
+	<select id="attr" required name="attr">
+	   <option value="drug_name">Drug Name</option>
+	   <option value="virus_name">Virus Name</option>
+	</select>
+	<label for="attr">Search by..</label>
+      </form>
+    </div>
   </nav> 
   <h1><?php echo "Browse Antiviral Drugs"; ?></h1>
+
+  <h3>What's in the drug table</h3>
+   <ul>
+    <li>Drug Name: the common name of the drug.</li>
+    <li>Title List: a (semicolon-separated) list containing the official titles of all individual drugs approved by the FDA referring to the drug.</li>
+    <li>Virus Name: common name for the virus that the drug is approved to treat.</li>
+    <li>CID: PubChem compound ID</li>
+    <li>Molecular Formula: the full text representing the molecular formula of the compound described by the drug name.</li>
+    <li>IUPAC Name: The nomenclature for the compound according to Inernational Union of Pure and Applied Chemistry standards.</li>
+   </ul>
 <?php
 
 /*Connection variables at top

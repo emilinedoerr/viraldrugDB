@@ -21,6 +21,41 @@ nav a.active {
 background-color: grey;
 color: white;
 }
+nav .search-container {
+float: right;
+}
+nav .search-container button {
+position:relative;
+float: right;
+padding: 6px;
+border: none;
+margin-top: 8px;
+margin-right: 16px;
+font-size: 17px;
+}
+nav .search-container input[type=text] {
+float: right;
+padding: 6px;
+border: none;
+margin-top: 8px;
+margin-right: 16px;
+font-size: 17px;
+}
+nav .search-container label {
+float: right;
+padding: 6px;
+border: none;
+margin-top: 8px;
+margin-right: 16px;
+font-size: 17px;
+}
+nav .search-container select {
+float: right;
+padding: 6px;
+margin-top: 8px;
+margin-right: 16px;
+padding: 10px 14px;
+}
 h1 {
 color: dimGrey;
 }

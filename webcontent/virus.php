@@ -10,9 +10,26 @@
      <a href="viraldrugDB.html">ViralDrugDB</a> 
      <a href="drug.php">Browse drugs</a> 
      <a class="active">Browse viruses</a> 
-   </nav>
-   <h1><?php echo "Browse Virus Information"; ?></h1>
+     <div class="search-container">
+       <form action="search.php"> 
+	<button type="submit">Go</button>
+        <input type="text" placeholder="Search" required name="search">
+	<select id="attr" required name="attr">
+	   <option value="drug_name">Drug Name</option>
+	   <option value="virus_name">Virus Name</option>
+	</select>
+	<label for="attr">Search by..</label>
+      </form>
+    </div>
+  </nav> 
 
+   <h1><?php echo "Browse Virus Information"; ?></h1>
+  <h3>What's in the virus table</h3>
+   <ul>
+    <li>Common Name: the common (colloquial) name of the virus/viral disease. Used for brevity.</li>
+    <li>DS IDs: a list (separated by semicolons) containing the KEGG disease IDs for all diseases associated with the common name of the virus.</li>
+    <li>Disease List: a list (separated by semicolons) containing the standardized name provided by KEGG disease of all diseases associated with the common name of the virus.</li>
+   </ul>
 <?php
 
 /*Connection variables at top
